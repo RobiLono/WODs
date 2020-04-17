@@ -1,47 +1,45 @@
 <script>
     /*
-    This is a sales invoice based on the Product Sales Data
+    This is a sales invoice based the sales of dog treats
+    */
+
+    /* Used Invoice 1 as referance
     */
 
     // Product data
 
     // Product 1
-    var item1 = 'Gillette Sensor 3 Razor';
+    var brand1 = 'Milk-Bones';
     var quantity1 = 2;
-    var price1 = 1.23;
+    var price1 = 20.00;
 
     // Product 2
-    var item2 = 'Barbasol Shaving Cream';
+    var brand2 = 'SmartBones';
     var quantity2 = 1;
-    var price2 = 2.64;
+    var price2 = 15.00;
 
     // Product 3
-    var item3 = 'Nautica Cologne';
+    var brand3 = 'Bits';
     var quantity3 = 1;
-    var price3 = 6.17;
+    var price3 = 18.00;
 
     // Product 4
-    var item4 = 'Rubbing Alcohol';
+    var brand4 = 'Mammoth-Bones';
     var quantity4 = 3;
-    var price4 = 0.98;
+    var price4 = 25.00;
 
-    // Product 5
-    var item5 = 'Colgate Classic Toothbrush';
-    var quantity5 = 12;
-    var price5 = 1.89;
-
+ 
     //compute extended prices
     var extended_price1 = quantity1*price1;
     var extended_price2 = quantity2*price2;
     var extended_price3 = quantity3*price3;
     var extended_price4 = quantity4*price4;
-    var extended_price5 = quantity5*price5;
     
     //compute sub-total
     var subtotal = extended_price1 + extended_price2 + extended_price3 + extended_price4 + extended_price5;
 
     //compute sales-tax
-    var tax_rate = 0.0575;
+    var tax_rate = 0.04;
     var tax = tax_rate*subtotal
 
     //compute grand total
@@ -62,7 +60,7 @@
     <table border="2">
         <tbody>
           <tr>
-            <th style="text-align: center;" width="43%">Item</th>
+            <th style="text-align: center;" width="43%">brand</th>
             <th style="text-align: center;" width="11%">quantity</th>
             <th style="text-align: center;" width="13%">price</th>
             <th style="text-align: center;" width="54%">extended price</th>
@@ -71,7 +69,7 @@
               //product row 1
               document.write(`)
           <tr> 
-            <td width="43%">${item1}</td>
+            <td width="43%">${brand1}</td>
             <td align="center" width="11%">${quantity1}</td>
             <td width="13%">\$${price1}</td>
             <td width="54%">\$${extended_price1}</td>
@@ -80,7 +78,7 @@
             //product row 2
          document.write(`)
           <tr> 
-            <td width="43%">${item2}</td>
+            <td width="43%">${brand2}</td>
             <td align="center" width="11%">${quantity2}</td>
             <td width="13%">\$${price2}</td>
             <td width="54%">\$${extended_price2}</td>
@@ -89,7 +87,7 @@
             //product row 3
          document.write(`)
           <tr> 
-            <td width="43%">${item3}</td>
+            <td width="43%">${brand3}</td>
             <td align="center" width="11%">${quantity3}</td>
             <td width="13%">\$${price3}</td>
             <td width="54%">\$${extended_price3}</td>
@@ -98,19 +96,10 @@
             //product row 4
          document.write(`)
           <tr> 
-            <td width="43%">${item4}</td>
+            <td width="43%">${brand4}</td>
             <td align="center" width="11%">${quantity4}</td>
             <td width="13%">\$${price4}</td>
             <td width="54%">\$${extended_price4}</td>
-         </tr>
-         `);
-            //product row 5
-         document.write(`)
-          <tr> 
-            <td width="43%">${item5}</td>
-            <td align="center" width="11%">${quantity5}</td>
-            <td width="13%">\$${price5}</td>
-            <td width="54%">\$${extended_price5}</td>
          </tr>
          `);
         </script>
