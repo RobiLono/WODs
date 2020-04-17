@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Treats Home</title>
-</head>
-<style>
-body{
-    text-align: center ;
-    background-color: violet;
-    font-size: x-large;
+    <head>
+
+        <meta charset="UTF-8">
     
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Dog Treats</title>
+        <link rel="stylesheet" href="./treats-style.css">
+        <script type="text/javascript" src="product_data.js"></script>
+        <script src="./store.js" type="text/javascript"></script>
+     
+</head>
+<body>
+    <form name="product_selection_form" action="invoice.html" method="POST">
+        <header>
+            <h1>Robi's Bark 4 Treats</h1>
+        </header>
+        <div>
+            <main id="products_main_display">
+            </main>
+        </div>
+        <footer id="display_footer">
+            <input type="submit" value="Purchase :)" name="purchase_submit">
+        </footer>
+    </form>
+ <style>
+body{
+    background-color: violet;
 }
 </style>
+<div>
 
+    <main>
 
-<body>
-    <h1>Bark 4 Treats</h1>
-    <img src="./images/treats.jpg" height="75%" width="75%">
-    <a href="products_display.html"><h1>Click Me To See Products</h1></a>
-    
+        <script>
+
+            // Generating variables
+            for (i = 1; i <= items; i++) {
+             document.write(`
+            <section class="item" onmouseover="this.className='item rotate';" onclick="this.className='item';">
+            <h2>${eval("brand" + i)}</h2>
+            <p>${eval("price" + i)}</p>
+            <img src="${eval("image" + i)}">
+            </section>
+        `);
+            }
+        </script>
+    </main>
+</div>
 </body>
 </html>

@@ -116,3 +116,66 @@
 </body>
 
 </html>
+
+<script>
+    /*Using Invoice1 as reference
+    */
+
+    /*
+        Invoice for Bark 4 Treats
+    */
+
+    // Product data
+
+    // Product 1
+    var item1 = 'Milk-Bones';
+    var quantity1 = 2;
+    var price1 = 20.00;
+
+    // Product 2
+    var item2 = 'SmartBones';
+    var quantity2 = 1;
+    var price2 = 15.00;
+
+    // Product 3
+    var item3 = 'Bits';
+    var quantity3 = 1;
+    var price3 = 18.00;
+
+    // Product 4
+    var item4 = 'Mammoth-Bones';
+    var quantity4 = 3;
+    var price4 = 25.00;
+
+
+    // Compute Extended Prices
+
+    extended_price1 = quantity1 * price1;
+    extended_price2 = quantity2 * price2;
+    extended_price3 = quantity3 * price3;
+    extended_price4 = quantity4 * price4;
+    extended_price5 = quantity5 * price5;
+
+    // Compute subtotal
+
+    var subtotal = extended_price1 + extended_price2 + extended_price3 + extended_price4;
+
+    // Compute tax
+
+    var tax = subtotal * 0.04712;
+
+    // Compute shipping
+
+    if (subtotal <= 20) {
+        shipping = 4;
+    } else if (subtotal > 20 < 100) {
+        shipping = 5;
+    } else if (subtotal > 100) {
+        shipping = 0.05 * subtotal;
+    }
+
+    // Compute grand total
+
+    var total = subtotal + tax + shipping;
+
+</script>

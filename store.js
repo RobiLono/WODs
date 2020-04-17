@@ -1,37 +1,3 @@
-//* Used 
-function isNonNegInt(q, return_errors = false) {
-    errors = []; // assume no errors at first
-    if (q == '') q = 0; // handle blank inputs as if they are 0
-    if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // Check if string is a number value
-    else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // Check if it is non-negative
-    else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer
-    return return_errors ? errors : (errors.length == 0);
-}
-
-function checkQuantityTextbox(theTextbox) {
-    errs = isNonNegInt(theTextbox.value, true);
-    if (errs.length == 0) errs = ['You want:'];
-    if (theTextbox.value.trim() == '') errs = ['Quantity'];
-    document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
-}
-
-function display_products() {
-    for (i = 0; i < products.length; i++) {
-        products_main_display.innerHTML +=
-            `+
-            <section class="item">
-                <h2>${products[i].brand}</h2>
-                <p>$${products[i].price}</p>
-                <div>
-                <label id="quantity${i}_label"}">Quantity</label>
-                <input type="text" placeholder="0" name="quantity${i}" 
-                onkeyup="checkQuantityTextbox(this);">
-                </div>
-                <img src="${products[i].image}">
-            </section>
-        `;
-    }
-}
 function display_invoice() {
     // copy the hidden invoice into the main element
     products_main_display.innerHTML = invoice_div.innerHTML;
