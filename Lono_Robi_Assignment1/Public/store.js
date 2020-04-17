@@ -1,4 +1,5 @@
-//* Used 
+//* Used Lab 13, Ex.4 as reference
+
 function isNonNegInt(q, return_errors = false) {
     errors = []; // assume no errors at first
     if (q == '') q = 0; // handle blank inputs as if they are 0
@@ -7,6 +8,8 @@ function isNonNegInt(q, return_errors = false) {
     else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer
     return return_errors ? errors : (errors.length == 0);
 }
+
+// creating textbox for customers to input value
 
 function checkQuantityTextbox(theTextbox) {
     errs = isNonNegInt(theTextbox.value, true);
@@ -68,7 +71,7 @@ function display_invoice() {
         shipping = 0.05 * subtotal; // 5% of subtotal
     }
 
-    // Compute grand total
+    // Computing grand total
     var total = subtotal + tax + shipping;
     // add subtotal row
     newRow = document.getElementById("invoice_table").insertRow();

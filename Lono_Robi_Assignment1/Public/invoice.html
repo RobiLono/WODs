@@ -29,20 +29,20 @@
     var price4 = 25.00;
 
  
-    //compute extended prices
+    //computing extended prices (quantity * price)
     var extended_price1 = quantity1*price1;
     var extended_price2 = quantity2*price2;
     var extended_price3 = quantity3*price3;
     var extended_price4 = quantity4*price4;
     
-    //compute sub-total
+    //computing the sub-total given extended prices
     var subtotal = extended_price1 + extended_price2 + extended_price3 + extended_price4 + extended_price5;
 
-    //compute sales-tax
+    //computing sales-tax (4% tax rate)
     var tax_rate = 0.04;
     var tax = tax_rate*subtotal
 
-    //compute grand total
+    //computing grand total
     var total = subtotal + tax;
 
 </script>
@@ -56,6 +56,9 @@
     <title>Document</title>
 </head>
 
+<script>
+  // setting up table for sales product invoice
+</script>
 <body>
     <table border="2">
         <tbody>
