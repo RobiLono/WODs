@@ -1,4 +1,4 @@
-//Using Lab 13 as reference
+//*Using Lab 13 as reference
 var express = require('express');
 var app = express();
 app.all('*', function (request, response, next) {
@@ -7,4 +7,4 @@ app.all('*', function (request, response, next) {
 });
     app.use(express.static('./public')); 
 app.listen(8080, () => console.log(`listening on port 8080`));
-//
+//*

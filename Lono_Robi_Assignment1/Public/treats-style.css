@@ -1,0 +1,44 @@
+/* General */
+
+body{
+
+    width:800px;
+
+    margin: 0 auto;  
+
+
+}
+
+/* Typography */ 
+
+h1,h2{
+
+    text-align: center;
+
+}
+
+
+
+/* Block styling */  
+
+body > div{
+
+    border: 5px dashed violet;
+
+    display: flex;
+
+}
+
+/* Form styling */  
+
+
+/* Styling the products display */ 
+
+img{
+
+    width: 200px;
+
+    height: 200px;
+
+
+}
