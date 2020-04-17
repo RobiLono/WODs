@@ -5,6 +5,6 @@ app.all('*', function (request, response, next) {
     console.log(request.method + ' to ' + request.path);
     next();
 });
-    app.use(express.static('./public')); 
+    app.use(express.static('./Public')); 
 app.listen(8080, () => console.log(`listening on port 8080`));
 //*
