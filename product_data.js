@@ -64,3 +64,4 @@ if(typeof module != 'undefined') {
     var price4 = "$25.00";
 
     var image4 = "./images/mammoth_bones.jpg";
+    </script>

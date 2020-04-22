@@ -1,3 +1,4 @@
+//* used template of code from SmartPhone products
 var products =
 [
     {  

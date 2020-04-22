@@ -22,7 +22,7 @@ function display_products() {
     for (i = 0; i < products.length; i++) {
         products_main_display.innerHTML +=
             `+
-            <section class="item">
+            <section class="brand">
                 <h2>${products[i].brand}</h2>
                 <p>$${products[i].price}</p>
                 <div>

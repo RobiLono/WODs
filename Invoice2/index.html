@@ -171,3 +171,54 @@
 </body>
 
 </html>
+
+
+
+<script>
+    /*
+    This is a sales invoice based the sales of dog treats
+    */
+
+    /* Used Invoice 1 as referance
+    */
+
+    // Product data
+
+    // Product 1
+    var brand1 = 'Milk-Bones';
+   
+    var price1 = 20.00;
+
+    // Product 2
+    var brand2 = 'SmartBones';
+    var quantity2 = 1;
+    var price2 = 15.00;
+
+    // Product 3
+    var brand3 = 'Bits';
+    var quantity3 = 1;
+    var price3 = 18.00;
+
+    // Product 4
+    var brand4 = 'Mammoth-Bones';
+    var quantity4 = 3;
+    var price4 = 25.00;
+
+ 
+    //computing extended prices (quantity * price)
+    var extended_price1 = quantity1*price1;
+    var extended_price2 = quantity2*price2;
+    var extended_price3 = quantity3*price3;
+    var extended_price4 = quantity4*price4;
+    
+    //computing the sub-total given extended prices
+    var subtotal = extended_price1 + extended_price2 + extended_price3 + extended_price4 + extended_price5;
+
+    //computing sales-tax (4% tax rate)
+    var tax_rate = 0.04;
+    var tax = tax_rate*subtotal
+
+    //computing grand total
+    var total = subtotal + tax;
+
+</script>
