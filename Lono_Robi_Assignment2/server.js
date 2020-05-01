@@ -5,13 +5,6 @@
 
 //load querystring
 
-const queryString = require('query-string'); //load querystring
-
-var filename = 'user_data.json';
-
-var fs = require('fs'); //Load file system
-
-
 var express = require('express');
 var app = express();
 var myParser = require("body-parser"); //load and cache body parser module
