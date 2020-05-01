@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regitration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&display=swap" rel="stylesheet"> 
+</head>
+<body>
+   <!--ask user to log in--> 
+   <center>
+       <h1>
+           <strong>Make an account with us!</strong>
+       </h1>
+       <h4
+        style="color:lightgoldenrodyellow;">Already a member? <br /> Click <a
+                onclick="window.location='./login.html'+window.location.search;">here</a> to be taken to the login page
+       </h4>
+   </center>
+     <!-- The following form is used from Lab14 ex4-->
+    <!--Used W3Schools codes as reference for registration form-->
+     <form method="POST" name="registration_form" >
+        <label for="fullname">Full name:</label><br>
+        <input type="text" id="fullname" name="fullname" size="40" placeholder="Enter Full Name"><br />
+         <label for="email">Email:</label><br> 
+         <input type="email" name="email" id="email" size="40" placeholder="Enter Email"><br />
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" size="40" placeholder="Enter Password"><br />
+        <label for="repeat_password">Confirm Password:</label><br>
+        <input type="password" name="repeat_password" id="repeat_password" size="40" placeholder="Confirm Password"><br />
+        <center><input type="submit" value="Register" id="submit"></center>
+    </form>
+</body>
+</html>

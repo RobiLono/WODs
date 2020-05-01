@@ -1,3 +1,40 @@
+//* Used Lab 13, Ex.4 as reference
+
+function isNonNegInt(q, return_errors = false) {
+    errors = []; // assume no errors at first
+    if (q == '') q = 0; // handle blank inputs as if they are 0
+    if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // Check if string is a number value
+    else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // Check if it is non-negative
+    else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer
+    return return_errors ? errors : (errors.length == 0);
+}
+
+// creating textbox for customers to input value
+
+function checkQuantityTextbox(theTextbox) {
+    errs = isNonNegInt(theTextbox.value, true);
+    if (errs.length == 0) errs = ['You want:'];
+    if (theTextbox.value.trim() == '') errs = ['Quantity'];
+    document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
+}
+
+function display_products() {
+    for (i = 0; i < products.length; i++) {
+        products_main_display.innerHTML +=
+            `+
+            <section class="brand">
+                <h2>${products[i].brand}</h2>
+                <p>$${products[i].price}</p>
+                <div>
+                <label id="quantity${i}_label"}">Quantity</label>
+                <input type="text" placeholder="0" name="quantity${i}" 
+                onkeyup="checkQuantityTextbox(this);">
+                </div>
+                <img src="${products[i].image}">
+            </section>
+        `;
+    }
+}
 function display_invoice() {
     // copy the hidden invoice into the main element
     products_main_display.innerHTML = invoice_div.innerHTML;
@@ -34,7 +71,7 @@ function display_invoice() {
         shipping = 0.05 * subtotal; // 5% of subtotal
     }
 
-    // Compute grand total
+    // Computing grand total
     var total = subtotal + tax + shipping;
     // add subtotal row
     newRow = document.getElementById("invoice_table").insertRow();
@@ -96,16 +133,3 @@ window.onload = function () {
         }
     }
 }
-
-
-
-//*Using Lab 13 as reference
-var express = require('express');
-var app = express();
-app.all('*', function (request, response, next) {
-    console.log(request.method + ' to ' + request.path);
-    next();
-});
-    app.use(express.static('./Public')); 
-app.listen(8080, () => console.log(`listening on port 8080`));
-//*

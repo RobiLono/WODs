@@ -1,3 +1,22 @@
 {
-    "username":{"name":"robilono","password":"!student!","email":"robilono@hawaii.edu"}
-}
+    "itm352": {
+      "name": "itm352 Grader",
+      "password": "grader",
+      "email": ""
+    },
+    "Robi": {
+      "name": "Robi",
+      "password": "Lono1234",
+      "email": "robilono2@gmail.com"
+    },
+    "Bob": {
+      "name": "Bob",
+      "password": "Thebuilder",
+      "email": "Bob@aol.com"
+    },
+    "Hi": {
+      "name": "Hi",
+      "password": "Hello",
+      "email": "Hi@hotmail.com"
+    }
+  }
