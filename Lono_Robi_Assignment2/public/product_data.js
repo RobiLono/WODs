@@ -1,5 +1,5 @@
 //* used template of code from SmartPhone products
-var products =
+var product_data =
 [
     {  
     "brand":"Milk-Bones",  
@@ -25,4 +25,4 @@ var products =
   ];
  
   if(typeof module != 'undefined') {
-    module.exports.products = products};
+    module.exports.products = product_data};

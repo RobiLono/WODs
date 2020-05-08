@@ -1,22 +1,17 @@
 {
     "itm352": {
-      "name": "itm352 Grader",
+      "name": "ITM352",
       "password": "grader",
-      "email": ""
+      "email": "itm352@hawaii.edu"
     },
     "Robi": {
       "name": "Robi",
       "password": "Lono1234",
       "email": "robilono2@gmail.com"
     },
-    "Bob": {
-      "name": "Bob",
-      "password": "Thebuilder",
-      "email": "Bob@aol.com"
-    },
-    "Hi": {
-      "name": "Hi",
-      "password": "Hello",
-      "email": "Hi@hotmail.com"
-    }
+    "dport": {
+      "name": "Dan Port",
+      "password": "portpassword",
+      "email": "dport@hawaii.edu"
   }
+}

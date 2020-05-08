@@ -1,0 +1,52 @@
+<!--Robi's Assignment 2 Login Page-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+        // get the query-string values from submission
+        let params = (new URL(document.location)).searchParams;
+        //Checks to see if a valid quanitity was input 
+        window.onload = function () {
+            // creating the function for window.onload 
+            // Check to see if page gets redirected from the server due to an error
+            if (params.has('LogErrs')) {
+                /*Puts orig. data back into textbox if if params has invalid registration data
+                put values of query-string into username and password boxes*/
+                login_form['username'].value = params.get('username');
+                login_form['password'].value = params.get('password');
+                /*if there is a login error, put up an alert*/
+                alert('Invalid Username or Password');
+            }
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,800&display=swap">
+    <link rel="stylesheet" href="./product_style.css">
+</head>
+
+<body>
+    <center>
+        <h1>Please login to continue to checkout</h1>
+        <h4 style="color:black;">New user? Please register <a 
+                onclick="window.location='./register.html'">here</a></h4>
+  
+
+    <form name="login_form" action="check_login" method="POST">
+        <label for="username">Username</label><br>
+        <input type="text" name="username" size="40" placeholder="Enter Username"><span
+            id="username_message"></span><br />
+
+        <label for="password">Password</label><br>
+        <input type="password" name="password" size="40" placeholder="Enter Password"><span
+            id="password_message"></span><br />
+
+        <center><input type="submit" value="Log In" name="submit"></center>
+    </form>
+  </center>
+</body>
+
+</html>

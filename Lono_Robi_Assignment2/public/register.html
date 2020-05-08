@@ -1,10 +1,61 @@
+<!--Robi's Registration Page-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // get the query string values from form submission
+        // used code from lab 13
+        let params = (new URL(document.location)).searchParams;
+        // Allow to get parameters
+        // Creating function window.onload so when the page is loading, it checks to make sure there is a quantity written and that the quantities in textbox are valid
+        window.onload = function () {
+            // creating the function for window.onload
+            // Check if we're getting redirected from the server because of an error
+            if (params.has('errors')) {
+                /*if params has invalid registration data
+                 Put the original data back into the textboxes
+                put values of query string into boxes*/
+                Register['fullname'].value = params.get('fullname');
+                /*for name*/
+                Register['username'].value = params.get('username');
+                /*for username*/
+                Register['password'].value = params.get('password');
+                /*for password*/
+                Register['confirm_password'].value = params.get('confirm_password');
+                /*for confirm password*/
+                Register['email'].value = params.get('email');
+                /*for email
+                  get errors, indicate them on form
+                  if there is a registration error, put up an alert*/
+                alert('Fix the following errors: \n' + params.get('errors'));
+            }
+            if (params.has('nameerrors')) {
+                var nameerrors = params.get('nameerrors');
+                document.getElementById("fullname").innerHTML = nameerrors;
+            }
+            if (params.has('usererrors')) {
+                var usererrors = params.get('usererrors');
+                document.getElementById("username").innerHTML = usererrors;
+            }
+            if (params.has('passerrors')) {
+                var passerrors = params.get('passerrors');
+                document.getElementById("password").innerHTML = passerrors;
+            }
+            if (params.has('confirmerrors')) {
+                var confirmerrors = params.get('confirmerrors');
+                document.getElementById("confirm_password").innerHTML = confirmerrors;
+            }
+            if (params.has('emailerrors')) {
+                var emailerrors = params.get('emailerrors');
+                document.getElementById("email").innerHTML = emailerrors;
+            }
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regitration</title>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./product_style.css">
 </head>
 <body>
    <!--ask user to log in--> 
@@ -13,21 +64,23 @@
            <strong>Make an account with us!</strong>
        </h1>
        <h4
-        style="color:lightgoldenrodyellow;">Already a member? <br /> Click <a
+        style="color:black;">Already a member? <br /> Click <a
                 onclick="window.location='./login.html'+window.location.search;">here</a> to be taken to the login page
        </h4>
    </center>
      <!-- The following form is used from Lab14 ex4-->
     <!--Used W3Schools codes as reference for registration form-->
-     <form method="POST" name="registration_form" >
+     <form name="registration_form" action="register_user" method="POST">
         <label for="fullname">Full name:</label><br>
         <input type="text" id="fullname" name="fullname" size="40" placeholder="Enter Full Name"><br />
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" size="40" placeholder="Enter Username"><br />
          <label for="email">Email:</label><br> 
          <input type="email" name="email" id="email" size="40" placeholder="Enter Email"><br />
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" size="40" placeholder="Enter Password"><br />
-        <label for="repeat_password">Confirm Password:</label><br>
-        <input type="password" name="repeat_password" id="repeat_password" size="40" placeholder="Confirm Password"><br />
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password" name="confirm_password" id="confirm_password" size="40" placeholder="Confirm Password"><br />
         <center><input type="submit" value="Register" id="submit"></center>
     </form>
 </body>
