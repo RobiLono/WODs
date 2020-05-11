@@ -54,9 +54,9 @@ for (i = 0; i < product_data.length; i++) {
   var tax = tax_rate*subtotal
 
 /* Compute Shipping */
-if (subtotal < 100) { shipping = 2 }
-else if (subtotal < 150) { shipping = 4 }
-else if (subtotal > 175) { shipping = 8 };
+if (subtotal == 0) { shipping = 0 }
+else if (subtotal < 100) { shipping = 2 }
+else if (subtotal > 150) { shipping = 4 };
 
   //computing grand total
   var total = subtotal + tax + shipping;
@@ -89,6 +89,15 @@ else if (subtotal > 175) { shipping = 8 };
         </tbody>
       </table>
       <h4><strong>MAHALO NUI FOR SHOPPING WITH US!</strong></h4>
+      <tr>
+        <td style="text-align: left;" colspan="5" width="121%">
+            <strong>
+                OUR SHIPPING POLICY IS: <br>
+                Subtotals under $100.00 will be charged $2 shipping. <br>
+                Subtotals over $150 will be charged $4 shipping. <br>
+            </strong>
+        </td>
+    </tr>
 </body>
 
 </html>

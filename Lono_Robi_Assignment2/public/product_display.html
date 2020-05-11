@@ -41,6 +41,9 @@
             // Now respond to errors or redirect to invoice if all is ok
             if (has_errors) {
                 alert("Please enter only valid brand quantities!");
+                /* no quantity selections, just give a general alert */
+            } else if(total_qty == 0) { 
+            alert("Please select some quantities!");
             } else { // all good to go!
                 window.location = `./invoice.html${document.location.search}`;
                 window.stop;
