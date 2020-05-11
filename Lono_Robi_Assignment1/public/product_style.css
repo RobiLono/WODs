@@ -1,0 +1,42 @@
+h1, h2, h3, h4 { 
+
+    font-family: 'Courier Prime', monospace;
+    margin: 0;
+    text-align: center;
+  }
+
+h1 {
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;  
+}
+
+li {
+    font-family: 'Courier Prime';
+    display: inline;
+    color: black;
+}
+#navbar a {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+html {
+    font-family: 'Courier Prime', monospace;
+    background-color: honeydew;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }

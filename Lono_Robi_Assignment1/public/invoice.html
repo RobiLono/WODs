@@ -1,0 +1,119 @@
+<script src="./product_data.js" type="text/javascript">
+
+let params = (new URL(document.location)).searchParams; // Searches for paramaters in new URL location
+var quantities = []; // Creates a 'quantities' variable
+if (params.has('purchase_submit')) { // If form was submitted, process the invoice
+  for (i = 0; i < products.length; i++) { // For loop that generates length of products from products.js file, (i=i+1 -> post increment: use the value of i first, then increment)
+    if (params.has(`quantity${i}`)) {
+      a_qty = params.get(`quantity${i}`);
+      quantities[i] = a_qty;
+    }
+  }
+}
+console.log(quantities);
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Treats</title>
+</head>
+<link rel="stylesheet" href="./product_style.css">
+
+<script>
+  // setting up table for sales product invoice
+</script>
+<body>
+    
+  <table border="2">
+  <tbody>
+          <tr>
+         <th style="text-align: center;" width="43%">Item</th>
+           <th style="text-align: center;" width="11%">quantity</th>
+           <th style="text-align: center;" width="13%">price</th>
+           <th style="text-align: center;" width="54%">extended price</th>
+          </tr>
+
+<script>
+subtotal = 0; // Start by setting subtotal = 0
+for (i = 0; i < products.length; i++)
+    if (quantities[i] > 0) { //if there is a quantity entered in the textbox ...
+      //product row
+      extended_price = quantities[i] * products[i].price //equation for extended price
+      subtotal += extended_price; //adding extended price for each brand to the subtotal
+      
+      document.write (`
+        <tr>
+                <td align="center" width="43%">${products[i].brand}</td>
+                <td align="center" width="11%">${quantities[i]}</td>
+                <td width="13%">\$${products[i].price}</td>
+                <td width="54%">\$${extended_price}</td>
+            </tr>
+        `);
+}
+
+// Compute tax
+var tax_rate = 0.04712; // creates var 'text_rate' to equal 0.04712 (4.712%)
+var tax = tax_rate * subtotal;
+
+/*
+Compute shipping
+If subtotal is less than or equal to 50, shipping = $5
+If subtotal is less than or equal to 75, shipping = $10
+If subtotal is greater than 75, shipping is free!!
+*/
+if (subtotal <= 50) { 
+  shipping = 5;
+}
+else if (subtotal <= 75) {
+  shipping = 10;
+}
+else if (subtotal > 75) {
+  shipping = 0; 
+}
+
+// Compute grand total
+var total = subtotal + tax + shipping;
+
+</script>
+<script>
+  //Generating table for tax, shipping and subtotal
+</script>
+<tr>
+    <td colspan="4" width="100%">&nbsp;</td>
+    </tr>
+    <tr>
+    <td style="text-align: center;" colspan="3" width="67%">Sub-total</td>
+    <td width="54%">$<script>document.write(subtotal);</script></td>
+          </tr>
+          <tr>
+            <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ 4.712%</span></td>
+            <td width="54%">$<script>document.write(tax.toFixed(2));</script></td>
+          </tr>
+          <tr>
+            <td style="text-align: center;" colspan="3" width="67%"><strong>shipping</strong></td>
+            <td width="54%"><strong>$<script>document.write(total.toFixed(2));</script></strong></td>
+          </tr>
+          <tr>
+            <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
+            <td width="54%"><strong>$<script>document.write(total.toFixed(2));</script></strong></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <div>
+      <br>
+      <h2>
+        OUR SHIPPING POLICY IS : <br> A subtotal $0 - $50.00 will be $5 shipping <br>
+        A subtotal $50.00 - $75.00 will be $10 shipping <br>
+        Subtotals over $75.00 qualify for free shipping!
+      </h2>
+      </div>
+</body>
+<footer>
+ <strong>MAHALO NUI!</strong> 
+</footer>
+
+</html>
