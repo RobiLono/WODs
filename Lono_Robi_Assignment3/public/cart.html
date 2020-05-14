@@ -1,0 +1,49 @@
+<!--Robi Lono's Shopping Cart Page-->
+<script src="./product_data.js" type="text/javascript"></script>
+<script>
+let params = (new URL(document.location)).searchParams; //this is the query string
+var quantities = []; //create empty variable 'quantities'
+    // processing the invoice from the data entered in the quantity_form
+    if (params.has('purchase_submit')) { // loop that pulls information from the quantity_form in product_display.html
+    for (i = 0; i < product_data.length; i++) { //for any given brand...
+        if (params.has(`quantity_textbox${i}`)) { // if there is input in the quantity_textbox...
+            qty = params.get(`quantity_textbox${i}`); //get the information and put it into the variable 'qty'
+            quantities[i] = qty; //set variable 'quantities' for any given brand equal to the value of its corresponding quantity_textbox
+        }
+    }
+}
+</script>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="product_style.css">
+</head>
+<header align="center">
+<!--center's the header for shopping cart page-->
+<h1 align="center" style=color:black>Shopping Cart</h1>
+</header>
+<body>
+    <div id="navbar">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="product_display.html">PRODUCTS</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+            <li><a href="shipping_policy.html">SHIPPING POLICY</a></li>
+            <li><a href="cart.html">SHOPPING CART</a></li>
+        </ul>
+        <form action="invoice.html" method="GET">
+    <script>
+        if (fullname != 'undefined' && fullname != '') { //notify the customer to review their order
+            document.write(`<h3 align="center"> Hello, ${fullname}! Review your order below please </h3> `)
+
+        }
+        else {
+            document.write(`<h3 align="center"> Hello, ${username}! Review your order below please </h3> `)
+        }
+    </script>
+
+</body>
+</html>
