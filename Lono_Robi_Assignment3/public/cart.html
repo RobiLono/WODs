@@ -12,7 +12,18 @@ var quantities = []; //create empty variable 'quantities'
         }
     }
 }
-</script>  
+</script>
+<script>
+    var subtotal = 0;
+    // Get the query string values from form submission
+    let params = (new URL(document.location)).searchParams;
+    var quantity = ["", ""];
+    //Turns the query string values into var values
+    for (var i = 0; i < quantity.length; i++) {
+      quantity[i] = params.get("quantity" + i);
+    }
+
+  </script>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +37,7 @@ var quantities = []; //create empty variable 'quantities'
 <h1 align="center" style=color:black>Shopping Cart</h1>
 </header>
 <body>
+    <form name="product_form" action="process" method="POST"></form>
     <div id="navbar">
         <ul>
             <li><a href="index.html">HOME</a></li>
@@ -34,27 +46,198 @@ var quantities = []; //create empty variable 'quantities'
             <li><a href="shipping_policy.html">SHIPPING POLICY</a></li>
             <li><a href="cart.html">SHOPPING CART</a></li>
         </ul>
+
+<!--Retrieved code from https://designmodo.com/shopping-cart-ui/ -->
+<!-- Product #1 -->
+<div class="brand">
+    <div class="buttons">
+      <span class="delete-btn"></span>
+      <span class="like-btn"></span>
+    </div>
+ 
+    <div class="image">
+      <img src="./images/milkbones.jpg" alt="" />
+    </div>
+ 
+    <div class="description">
+      <span>Milk-Bones</span>
+    </div>
+ 
+    <div class="quantity">
+        <script>
+
+// code retrieved from https://stackoverflow.com/questions/9186346/javascript-onclick-increment-number
+
+            function incrementValue()
+{
+    var value = parseInt(document.getElementById('number1').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('number1').value = value;
+}
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number1').value, 0);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    document.getElementById('number1').value = value;
+}
+</script>
+        <form>
+            <input type="text" id="number1" value="0"/>
+            <input type="button" onclick="incrementValue()" value="Increment Value" />
+            <input type="button" onclick="decrementValue()" value="Decrement Value" />
+        </form>
+    </div>
+
+    <div class="total-price">$5.50</div>
+  </div>
+</div>
+
+<!-- Product #2 -->
+<div class="brand">
+    <div class="buttons">
+      <span class="delete-btn"></span>
+      <span class="like-btn"></span>
+    </div>
+ 
+    <div class="image">
+      <img src="./images/smartbones.jpg" alt="" />
+    </div>
+ 
+    <div class="description">
+      <span>SmartBones</span>
+    </div>
+ 
+    <div class="quantity">
+        <script>
+
+// code retrieved from https://stackoverflow.com/questions/9186346/javascript-onclick-increment-number
+           
+        function incrementValue()
+{
+    var value = parseInt(document.getElementById('number2').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('number2').value = value;
+}
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number2').value, 0);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    document.getElementById('number2').value = value;
+}
+</script>
+        <form>
+            <input type="text" id="number2" value="0"/>
+            <input type="button" onclick="incrementValue()" value="Increment Value" />
+            <input type="button" onclick="decrementValue()" value="Decrement alue" />
+        </form>
+    </div>
+    <div class="total-price">$10.25</div>
+  </div>
+</div>
+<!-- Product #3 -->
+<div class="brand">
+    <div class="buttons">
+      <span class="delete-btn"></span>
+      <span class="like-btn"></span>
+    </div>
+ 
+    <div class="image">
+      <img src="./images/bits.jpg" alt="" />
+    </div>
+ 
+    <div class="description">
+      <span>Bits</span>
+    </div>
+ 
+    <div class="quantity">
+               <script>
+               
+    // code retrieved from https://stackoverflow.com/questions/9186346/javascript-onclick-increment-number
+
+            function incrementValue()
+{
+    var value = parseInt(document.getElementById('number3').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('number3').value = value;
+}
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number3').value, 0);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    document.getElementById('number3').value = value;
+}
+</script>
+        <form>
+            <input type="text" id="number3" value="0"/>
+            <input type="button" onclick="incrementValue()" value="Increment Value" />
+            <input type="button" onclick="decrementValue()" value="Decrement Value" />
+        </form>
+    </div>
+    <div class="total-price">$8.45</div>
+  </div>
+</div>
+
+<!-- Product #4 -->
+<div class="brand">
+    <div class="buttons">
+      <span class="delete-btn"></span>
+      <span class="like-btn"></span>
+    </div>
+ 
+    <div class="image">
+      <img src="./images/mammoth_bones.jpg" alt="" />
+    </div>
+ 
+    <div class="description">
+      <span>Mammoth-Bones</span>
+    </div>
+ 
+    <div class="quantity">
+        <script>
+
+ // code retrieved from https://stackoverflow.com/questions/9186346/javascript-onclick-increment-number
+           
+            function incrementValue()
+{
+    var value = parseInt(document.getElementById('number4').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('number4').value = value;
+}
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number4').value, 0);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    document.getElementById('number4').value = value;
+}
+</script>
+        <form>
+            <input type="text" id="number4" value="0"/>
+            <input type="button" onclick="incrementValue()" value="Increment Value" />
+            <input type="button" onclick="decrementValue()" value="Decrement Value" />
+        </form>
+    </div>
+    <div class="total-price">$13.75</div>
+  </div>
+</div>
+
 <!--retrieved code from smashingmagazine.com-->
     <ul id="shopping-cart-actions">
+            <!--creates a button for users to continue shopping-->
         <li>
-            <input type="submit" name="update" id="update-cart" class="btn" value="Update Cart" /> <!--creates a button to update cart-->
-        </li>
-        <li>
-            <input type="submit" name="delete" id="empty-cart" class="btn" value="Empty Cart" /> <!--creates a button to empty cart-->
-        </li>
-        <li>
-            <a href="index.html" class="btn">Continue Shopping</a> <!--creates a button for users to continue shopping-->
-        </li>
-        <li>
-            <a href="login.html" class="btn">Go To Checkout</a> <!--creates a button for users to checkout-->
+        <a href="product_display.html" class="btn"> Continue Shopping</a> <!--creates a button for users to checkout-->
+            <!--creates a button for users to go to checkout-->
+        <a href="login.html" class="btn">Go To Checkout</a> <!--creates a button for users to checkout-->
         </li>
     </ul>
 </form>
-
-
-<footer>
-    <input type="submit" value="Click to Submit!" name="purchase_submit">
-</footer>
 </body>
 
 </html>

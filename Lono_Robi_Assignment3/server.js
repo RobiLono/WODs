@@ -12,6 +12,11 @@ var data = require("./public/product_data.js"); //include data from products_dat
 var filename = 'user_data.json' //defines array as object
 var stringifiedData;
 
+var cookieParser = require(`cookie-parser`);
+app.use(cookieParser());
+var session = require('express-session');
+app.use(session({secret: "ITM352!"}));
+
 if (fs.existsSync(filename)) { //Only open the file if it exists 
     stats = fs.statSync(filename) //gets stats from file
     console.log(filename + 'has' + stats.size + 'characters');
@@ -20,6 +25,39 @@ if (fs.existsSync(filename)) { //Only open the file if it exists
 } else { 
     console.log(filename + 'does not exist!'); //filename does not exist
 }
+// code was retrieved from https://www.w3schools.com/js/js_cookies.asp
+function setCookie(cname, cvalue, exdays) { //Function to set cookie
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  
+  function getCookie(cname) { //Function to get cookie
+    var name = cname + "="; // creates a variable called name with text to search for cname + "="
+    var ca = document.cookie.split(';'); // Split document.cookie on semicolons into an array called ca (ca = decodedCookie.split(';')).
+    for(var i = 0; i < ca.length; i++) {  // creates a for loop
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  function checkCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+      alert("Welcome again " + user);
+    } else {
+      user = prompt("[Login Please");
+      if (user != "" && user != null) {
+        setCookie("username", user, 365);
+      }
+    }
+  } 
 
 function isNonNegInt(q, return_errors = false) { //creating a function to check if string is a non-neg. integer
     errors = []; // assume no errors at first
@@ -49,7 +87,7 @@ app.post("/process", function (req, res) {
 });
 
 app.post("/check_login", function(req, res) {
-    if((req.body.username == "itm352") && (req.body.password == "grader"))
+    if((req.body.username == "mary23", "itm352") && (req.body.password == "mary123","grader"))
     res.redirect('./invoice.html?' + stringifiedData);
     else {
         var stringified = queryString.stringify(req.body);
