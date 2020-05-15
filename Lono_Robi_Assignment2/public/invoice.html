@@ -1,3 +1,4 @@
+<!--Robi's Invoice Page-->
 <script src="./product_data.js" type="text/javascript"></script>
 <script>
     let params = (new URL(document.location)).searchParams; //this is the query string
@@ -14,6 +15,7 @@
             document.write ('no form was submitted');
       };
 console.log(quantities); //Displays quanitites in the console
+alert("Thank you for your purchase " + params.get('username')); 
 </script>
 
 <head>

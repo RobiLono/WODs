@@ -1,4 +1,5 @@
-//* used template of code from SmartPhone products
+/* Robi's Product_data page
+used template of code from SmartPhone products*/
 var product_data =
 [
     {  

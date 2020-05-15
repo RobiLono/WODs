@@ -1,20 +1,25 @@
-/* Using Lab 13 as reference
-
+/*Robi's Server Page
+Using Lab 13 as reference
    Using info_server_ex4.js from Lab 13
-
    server will generate with express instead of http
-
-    Copied from Robi's Assignment 2 Server
-    
-    Robi Lono's Assignment 3 Server
-*/
+Assignment 3 Server*/
 var express = require('express');
 var app = express();
 var myParser = require("body-parser"); //load and cache body parser module
 const queryString = require('query-string'); //read variable 'queryString' as the loaded query-string module
+var fs = require('fs');
+var data = require("./public/product_data.js"); //include data from products_data.js
+var filename = 'user_data.json' //defines array as object
 var stringifiedData;
-var cookieParser = require('cookie-parser'); // Set variable cookieParser as the cookie-parser module
-app.use(cookieParser()); //use cooki-parser middleware
+
+if (fs.existsSync(filename)) { //Only open the file if it exists 
+    stats = fs.statSync(filename) //gets stats from file
+    console.log(filename + 'has' + stats.size + 'characters');
+    data = fs.readFileSync(filename, 'utf-8'); //read the file synchronously until the file comes back
+    users_reg_data = JSON.parse(data); //Load users_reg_data from userdata.json
+} else { 
+    console.log(filename + 'does not exist!'); //filename does not exist
+}
 
 function isNonNegInt(q, return_errors = false) { //creating a function to check if string is a non-neg. integer
     errors = []; // assume no errors at first
@@ -28,7 +33,8 @@ function isNonNegInt(q, return_errors = false) { //creating a function to check 
 // Used code from Lab 13
 // Initializes express
 app.all('*', function (request, response, next) {
-    console.log(request.method + ' to ' + request.path); // Logs request method and path to the console
+    // Logs request method and path to the console
+    console.log(request.method + ' to ' + request.path); 
     next();
 });
 
@@ -36,11 +42,10 @@ data = require('./public/product_data.js');
 
 app.use(myParser.urlencoded({ extended: true }));
 
-app.get('/set_cookie')
-
 app.post("/process", function (req, res) {
     stringifiedData = queryString.stringify(req.body);
-    res.redirect('./login.html'); //redirect to login page
+    //redirect to login page
+    res.redirect('./login.html'); 
 });
 
 app.post("/check_login", function(req, res) {
@@ -73,7 +78,7 @@ if (req.body.password === req.body.confirm_password) {
 else
 {
 if((emailaccount == "yahoo.com") || (emailaccount == "gmail.com") || (emailaccount == "aol.com") || (emailaccount == "hotmail.com" || (emailaccount == "hawaii.edu")))
-    res.redirect('./register.html?'+ stringifie + '&errors=Passwords do not match&passerrors=Passwords do not match' +
+    res.redirect('./register.html?'+ stringifiedData + '&errors=Passwords do not match&passerrors=Passwords do not match' +
     '&confirmerrors=Passwords do not match');
 else
 res.redirect('./register.html?'+ stringifiedData + '&errors=Password, confirm password and email&passerrors=' +

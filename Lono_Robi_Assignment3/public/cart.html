@@ -34,16 +34,27 @@ var quantities = []; //create empty variable 'quantities'
             <li><a href="shipping_policy.html">SHIPPING POLICY</a></li>
             <li><a href="cart.html">SHOPPING CART</a></li>
         </ul>
-        <form action="invoice.html" method="GET">
-    <script>
-        if (fullname != 'undefined' && fullname != '') { //notify the customer to review their order
-            document.write(`<h3 align="center"> Hello, ${fullname}! Review your order below please </h3> `)
+<!--retrieved code from smashingmagazine.com-->
+    <ul id="shopping-cart-actions">
+        <li>
+            <input type="submit" name="update" id="update-cart" class="btn" value="Update Cart" /> <!--creates a button to update cart-->
+        </li>
+        <li>
+            <input type="submit" name="delete" id="empty-cart" class="btn" value="Empty Cart" /> <!--creates a button to empty cart-->
+        </li>
+        <li>
+            <a href="index.html" class="btn">Continue Shopping</a> <!--creates a button for users to continue shopping-->
+        </li>
+        <li>
+            <a href="login.html" class="btn">Go To Checkout</a> <!--creates a button for users to checkout-->
+        </li>
+    </ul>
+</form>
 
-        }
-        else {
-            document.write(`<h3 align="center"> Hello, ${username}! Review your order below please </h3> `)
-        }
-    </script>
 
+<footer>
+    <input type="submit" value="Click to Submit!" name="purchase_submit">
+</footer>
 </body>
+
 </html>
